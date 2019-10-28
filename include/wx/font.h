@@ -664,6 +664,8 @@ WXDLLIMPEXP_CORE bool wxFromString(const wxString& str, wxFontBase* font);
     #include "wx/osx/font.h"
 #elif defined(__WXQT__)
     #include "wx/qt/font.h"
+#elif defined(__WXANDROID__)
+    #include "wx/android/font.h"
 #endif
 
 class WXDLLIMPEXP_CORE wxFontList: public wxGDIObjListBase

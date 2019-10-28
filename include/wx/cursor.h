@@ -70,6 +70,9 @@ public:
 #elif defined(__WXQT__)
     #define wxCURSOR_DEFAULT_TYPE   wxBITMAP_TYPE_CUR
     #include "wx/qt/cursor.h"
+#elif defined(__WXANDROID__)
+    #define wxCURSOR_DEFAULT_TYPE   wxBITMAP_TYPE_XPM
+    #include "wx/android/cursor.h"
 #endif
 
 #include "wx/utils.h"

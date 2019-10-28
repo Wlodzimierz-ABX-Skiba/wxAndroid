@@ -33,6 +33,7 @@
 #include "wx/univ/renderer.h"
 #include "wx/cshelp.h"
 #include "wx/evtloop.h"
+#include "wx/univ/inphand.h"
 
 // ----------------------------------------------------------------------------
 // wxStdTLWInputHandler: handles focus, resizing and titlebar buttons clicks

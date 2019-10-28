@@ -47,6 +47,8 @@
     #include "wx/msw/wrapwin.h"
 #endif
 
+#if wxUSE_CONTROLS
+
 // ----------------------------------------------------------------------------
 // wxRendererGeneric: our wxRendererNative implementation
 // ----------------------------------------------------------------------------
@@ -997,3 +999,5 @@ public:
 };
 
 wxIMPLEMENT_DYNAMIC_CLASS(wxGenericRendererModule, wxModule);
+
+#endif // wxUSE_CONTROLS

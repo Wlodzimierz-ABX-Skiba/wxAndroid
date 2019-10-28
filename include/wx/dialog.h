@@ -360,6 +360,8 @@ public:
         #include "wx/osx/dialog.h"
     #elif defined(__WXQT__)
         #include "wx/qt/dialog.h"
+    #elif defined(__WXANDROID__)
+        #include "wx/android/dialog.h"
     #endif
 #endif
 

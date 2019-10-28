@@ -291,9 +291,9 @@ static bool IsUNCPath(const wxString& path, wxPathFormat format)
 {
     return format == wxPATH_DOS &&
                 path.length() >= 4 && // "\\a" can't be a UNC path
-                    IsDOSPathSep(path[0u]) &&
-                        IsDOSPathSep(path[1u]) &&
-                            !IsDOSPathSep(path[2u]);
+                    IsDOSPathSep(path[(size_t)0u]) &&
+                        IsDOSPathSep(path[(size_t)1u]) &&
+                            !IsDOSPathSep(path[(size_t)2u]);
 }
 
 // Under Unix-ish systems (basically everything except Windows but we can't
@@ -448,7 +448,7 @@ void wxFileName::SetPath( const wxString& pathOrig, wxPathFormat format )
         return;
     }
 
-    wxChar leadingChar = path[0u];
+    wxChar leadingChar = path[(size_t)0u];
 
     switch (format)
     {
@@ -929,7 +929,7 @@ static wxString wxCreateTempImpl(
     path = dir;
 
     if ( !wxEndsWithPathSeparator(dir) &&
-            (name.empty() || !wxIsPathSeparator(name[0u])) )
+            (name.empty() || !wxIsPathSeparator(name[(size_t)0u])) )
     {
         path += wxFILE_SEP_PATH;
     }
@@ -1445,7 +1445,7 @@ bool wxFileName::Normalize(int flags,
         if ( !dirs.IsEmpty() )
         {
             wxString dir = dirs[0u];
-            if ( !dir.empty() && dir[0u] == wxT('~') )
+            if ( !dir.empty() && dir[(size_t)0u] == wxT('~') )
             {
                 // to make the path absolute use the home directory
                 curDir.AssignDir(wxGetUserHome(dir.c_str() + 1));
@@ -1682,7 +1682,7 @@ bool wxFileName::IsAbsolute(wxPathFormat format) const
         {
             wxString dir = m_dirs[0u];
 
-            if (!dir.empty() && dir[0u] == wxT('~'))
+            if (!dir.empty() && dir[(size_t)0u] == wxT('~'))
                 return true;
         }
     }
@@ -2393,7 +2393,7 @@ void wxFileName::SplitPath(const wxString& fullpathWithVolume,
             // special VMS hack: remove the initial bracket
             if ( format == wxPATH_VMS )
             {
-                if ( (*pstrPath)[0u] == wxT('[') )
+                if ( (*pstrPath)[(size_t)0u] == wxT('[') )
                     pstrPath->erase(0, 1);
             }
         }

@@ -19,6 +19,8 @@
     #include "wx/dcclient.h"
 #endif
 
+#ifdef wxHAS_ANY_BUTTON
+
 #include "wx/univ/renderer.h"
 #include "wx/univ/theme.h"
 #include "wx/univ/colschem.h"
@@ -293,3 +295,5 @@ bool wxStdAnyButtonInputHandler::HandleActivation(wxInputConsumer *consumer,
     // return true to refresh
     return wxStaticCast(consumer->GetInputWindow(), wxAnyButton)->IsDefault();
 }
+
+#endif // wxHAS_ANY_BUTTON

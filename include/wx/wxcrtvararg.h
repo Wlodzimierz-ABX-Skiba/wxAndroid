@@ -195,6 +195,9 @@
    so on but not all systems have them so use our own implementations in this
    case.
  */
+#ifdef __ANDROID__
+    #define HAVE_VSWSCANF
+#endif
 #if !defined(wxHAVE_TCHAR_SUPPORT) && !defined(HAVE_WPRINTF)
     #define wxNEED_WPRINTF
 #endif

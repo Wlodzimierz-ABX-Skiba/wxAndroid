@@ -35,6 +35,12 @@
 #  include <stddef.h>
 #endif
 
+#ifdef __ANDROID__
+#  include <unistd.h>
+#  include <fcntl.h>
+#  include <errno.h>
+#endif
+
 #if defined(__TURBOC__) || defined(_MSC_VER) || defined(_WIN32)
 #  include <io.h>
 #endif

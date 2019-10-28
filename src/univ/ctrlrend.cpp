@@ -33,6 +33,7 @@
     #include "wx/log.h"
     #include "wx/gauge.h"
     #include "wx/image.h"
+    #include "wx/window.h"
 #endif // WX_PRECOMP
 
 #include "wx/univ/theme.h"
@@ -46,6 +47,8 @@
 wxRenderer::~wxRenderer()
 {
 }
+
+#if wxUSE_CONTROLS
 
 // ----------------------------------------------------------------------------
 // wxControlRenderer
@@ -549,3 +552,5 @@ void wxControlRenderer::DrawProgressBar(const wxGauge *gauge)
 }
 
 #endif // wxUSE_GAUGE
+
+#endif // wxUSE_CONTROLS

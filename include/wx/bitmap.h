@@ -73,7 +73,8 @@ protected:
     defined(__WXGTK__) || \
     defined(__WXMOTIF__) || \
     defined(__WXX11__) || \
-    defined(__WXQT__)
+    defined(__WXQT__) || \
+    defined(__WXANDROID__)
     #define wxUSE_BITMAP_BASE 1
 #else
     #define wxUSE_BITMAP_BASE 0
@@ -293,6 +294,9 @@ protected:
 #elif defined(__WXQT__)
     #define wxBITMAP_DEFAULT_TYPE    wxBITMAP_TYPE_XPM
     #include "wx/qt/bitmap.h"
+#elif defined(__WXANDROID__)
+    #define wxBITMAP_DEFAULT_TYPE    wxBITMAP_TYPE_XPM
+    #include "wx/android/bitmap.h"
 #endif
 
 #if wxUSE_IMAGE

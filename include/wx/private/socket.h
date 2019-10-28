@@ -71,14 +71,22 @@
     typedef timeval wxTimeVal_t;
 #endif
 
-// these definitions are for MSW when we don't use configure, otherwise these
+// these definitions are for MSW and Android when we don't use configure, otherwise these
 // symbols are defined by configure
 #ifndef WX_SOCKLEN_T
-    #define WX_SOCKLEN_T int
+    #ifdef __ANDROID__
+        #define WX_SOCKLEN_T socklen_t
+    #else
+        #define WX_SOCKLEN_T int
+    #endif
 #endif
 
 #ifndef SOCKOPTLEN_T
-    #define SOCKOPTLEN_T int
+    #ifdef __ANDROID__
+        #define SOCKOPTLEN_T socklen_t
+    #else
+        #define SOCKOPTLEN_T int
+    #endif
 #endif
 
 // define some symbols which winsock.h defines but traditional BSD headers

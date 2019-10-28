@@ -57,6 +57,7 @@
          !defined(__WXDFB__)   && \
          !defined(__WXX11__)   && \
          !defined(__WXQT__)    && \
+         !defined(__WXANDROID__)    && \
           wxUSE_GUI
 #       ifdef __UNIX__
 #           error "No Target! You should use wx-config program for compilation flags!"
@@ -450,6 +451,8 @@ typedef short int WXTYPE;
             #define wxVaCopy(d, s)  memmove(*(d), *(s), sizeof(va_list))
         #elif defined(VA_LIST_IS_ARRAY)
             #define wxVaCopy(d, s) memmove((d), (s), sizeof(va_list))
+        #elif defined(__ANDROID__)
+            #define wxVaCopy(d, s) __va_copy(d,s)
         #else /* we can only hope that va_lists are simple lvalues */
             #define wxVaCopy(d, s) ((d) = (s))
         #endif
@@ -2986,6 +2989,10 @@ typedef const void* WXWidget;
 #ifdef __WXQT__
 #include "wx/qt/defs.h"
 #endif
+
+#ifdef __WXANDROID__
+typedef void* WXWidget;
+#endif /*  DFB */
 
 /*  include the feature test macros */
 #include "wx/features.h"

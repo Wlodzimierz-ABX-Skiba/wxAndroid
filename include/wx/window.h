@@ -2004,6 +2004,13 @@ inline void wxWindowBase::SetInitialBestSize(const wxSize& size)
         #define wxWindowQt wxWindow
     #endif // wxUniv
     #include "wx/qt/window.h"
+#elif defined(__WXANDROID__)
+    #ifdef __WXUNIVERSAL__
+        #define wxWindowNative wxWindowAndroid
+    #else // !wxUniv
+        #define wxWindowAndroid wxWindow
+    #endif // wxUniv
+    #include "wx/android/window.h"
 #endif
 
 // for wxUniversal, we now derive the real wxWindow from wxWindow<platform>,

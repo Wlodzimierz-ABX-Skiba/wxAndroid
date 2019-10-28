@@ -41,6 +41,10 @@
     #include <io.h>
 #endif
 
+#if defined(__ANDROID__)
+    #include <wchar.h>
+#endif
+
 #if defined(HAVE_STRTOK_R) && defined(__DARWIN__) && defined(_MSL_USING_MW_C_HEADERS) && _MSL_USING_MW_C_HEADERS
     char *strtok_r(char *, const char *, char **);
 #endif
