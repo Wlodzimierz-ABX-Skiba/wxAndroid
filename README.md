@@ -1,5 +1,14 @@
-About
------
+About wxAndroid
+---------------
+
+wxAndroid is a try to build Android port of wxWidgets.
+It starts from wxWidgets 3.1.2 and is builded on top of it.
+It compiles against android-ndk-r21-windows-x86_64.zip.
+To build library go to build/android folder and run ndk-build.
+It currently builds only as static library.
+
+About wxWidgets
+---------------
 
 wxWidgets is a free and open source cross-platform C++ framework
 for writing advanced GUI applications using native controls.
